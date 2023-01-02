@@ -2,21 +2,24 @@
 #include <windows.h>
 using namespace std;
 void menu();
-void gotoxy(int x,int y);
+
 main()
 {
-  system("cls");
-  while(true)
-  {
+ 
+ 
    int choice;
    string name1,name2,next;
    float matricmarks1,intermarks1,ecatmarks1,matricmarks2,intermarks2,ecatmarks2;
-   float perc1,perc2,perc3,aggregate1,aggregate2;
+   float perc1,perc2,perc3,perc4,perc5,perc6,aggregate1,aggregate2;
+  while(true)
+  {
+ system("cls");
    menu();
        cout <<"Enter your choice: ";
        cin>>choice;
      if(choice==1)
-       { 
+       {
+        system("cls"); 
         cout << "Enter your name: ";
         cin>>name1;
         cout << "Enter matric marks: ";
@@ -30,6 +33,7 @@ main()
        }
      if(choice==2)
        { 
+        system("cls");
         cout << "Enter your name:   "  ;
         cin>>name2;
         cout << "Enter matric marks:  "  ;
@@ -43,62 +47,60 @@ main()
        }
      if(choice==3)
        {
-        perc1=matricmarks1*30/100;
-        perc2=intermarks1*30/100;  
-        perc3=ecatmarks1*40/100;
+        system("cls");
+        perc1=(matricmarks1/1100*100)*0.3;
+        perc2=(intermarks1/550*100)*0.3;  
+        perc3=(ecatmarks1/400*100)*0.4;
         aggregate1=perc1+perc2+perc3;
-        cout <<"aggregate first student: "  <<aggregate1;
+        cout <<"aggregate first student: "  <<aggregate1<<endl;
         cout << "Enter s to be continued";
         cin>>next;
        }  
     if(choice==4)
        {
-        perc1=matricmarks2*30/100;
-        perc2=intermarks2*30/100;   
-        perc3=ecatmarks2*40/100;      
-        aggregate2=perc1+perc2+perc3;
+        system("cls");
+        perc4=(matricmarks2/1100*100)*0.3;
+        perc5=(intermarks2/1100*100)*0.4;   
+        perc6=(ecatmarks2/400*100)*0.4;      
+        aggregate2=perc4+perc5+perc6;
         cout <<"aggregate second student: "  <<aggregate2;
-        cout << "Enter s to be continued";
+        cout <<endl<< "Enter s to be continued";
         cin>>next;
        }  
 
      if(choice==5)
        {
+
           if(aggregate1>aggregate2)
          {
-            cout <<"first roll no first student"   <<name1;
+                    system("cls");
+            cout <<"first roll no first student "   << name1 << endl;
          }
-          if(aggregate2>aggregate2)
+          if(aggregate2>aggregate1)
          {
-            cout <<"first roll no second student"  <<name2;
+            system("cls");
+            cout <<"first roll no second student "  << name2 << endl;
          }
+        cout << "Enter s to be continued  ";
+        cin>>next;
        }
-  }  
+  }
 }  
-  void gotoxy(int x,int y)
 
-   {
-     COORD coordinates;
-     coordinates.X=x;
-    coordinates.Y=y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coordinates);
-   }
  void menu()
    {
-    gotoxy(35,1);
+    
     cout << " ******************************* " <<endl;
-    gotoxy(35,2);
     cout << " *        UET LAHORE           * "<<endl;
-    gotoxy(35,3);
     cout << " ******************************* "<<endl;
-    gotoxy(1,11);
+    cout << endl<<endl<<endl;
     cout  << "UNIVERSITY ADMISSION MANAGEMENT SYSTEM"  <<endl;
     cout << "press 1 to enter the detail of first student! "  <<endl;
     cout << "press 2 to enter the detail of second student! "  <<endl;
     cout << "press 3 to calculate the aggregate of first student! "  <<endl;
     cout << "press 4 to calculate the aggregate of second student! "  <<endl;
     cout << "press 5 to display the student with roll no 01! "   <<endl;
-    cout << "Enter your choice: "  <<endl;
+
 
    }
        
